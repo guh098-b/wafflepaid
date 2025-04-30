@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
   }
 
   // For regular dashboard routes
-  if (pathname.startsWith("/dashboard")) {
+  if (pathname.startsWith("/static/")) {
     const keyCookie = request.cookies.get("key_session")
     console.log("Key cookie:", keyCookie?.value ? "exists" : "missing")
 
@@ -46,5 +46,5 @@ export function middleware(request: NextRequest) {
 
 // Match only dashboard routes
 export const config = {
-  matcher: ["/dashboard", "/dashboard/:path*"],
+  matcher: ["/dashboard", "/dashboard/:path*", "/static/"],
 }
